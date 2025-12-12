@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Thermometer UI</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="header">
+      <h1>Smart Thermometer</h1>
+      <p class="sub">UI simulator using HTML + CSS + JavaScript</p>
+    </header>
+
+    <section class="panel">
+      <div class="grid">
+
+        <div class="readout" id="readout">
+          <div class="label">Current temperature</div>
+          <div class="big">
+            <span id="tempValue">22</span><span id="tempUnit">°C</span>
+          </div>
+          <div id="statusBadge" class="badge ok">Comfort</div>
+
+          <div class="mini">
+            <div>Comfort range: <strong><span id="minShow">18</span>°C</strong> – <strong><span id="maxShow">26</span>°C</strong></div>
+            <div>Saved: <strong id="savedInfo">—</strong></div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <div class="control">
+            <label for="tempSlider">Temperature</label>
+            <input id="tempSlider" type="range" min="-10" max="50" value="22" step="1" />
+            <div class="minmax"><span>-10</span><span>50</span></div>
+          </div>
+
+          <div class="row">
+            <div class="segmented" role="group" aria-label="Unit switch">
+              <button id="btnC" class="seg active" type="button">°C</button>
+              <button id="btnF" class="seg" type="button">°F</button>
+            </div>
+
+            <button id="btnSave" class="btn primary" type="button">Save</button>
+            <button id="btnReset" class="btn" type="button">Reset</button>
+          </div>
+
+          <hr class="sep" />
+
+          <div class="control">
+            <label>Comfort range (°C)</label>
+            <div class="rangeRow">
+              <div class="field">
+                <span class="fLabel">Min</span>
+                <input id="minComfort" type="number" value="18" step="1" />
+              </div>
+              <div class="field">
+                <span class="fLabel">Max</span>
+                <input id="maxComfort" type="number" value="26" step="1" />
+              </div>
+              <button id="btnApplyRange" class="btn ghost" type="button">Apply</button>
+            </div>
+            <p class="hint">Status updates live. Range and last save are stored in localStorage.</p>
+          </div>
+
+          <div class="control">
+            <label>History (last 8 saves)</label>
+            <ul id="historyList" class="history"></ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="footer">
+      <a class="back" href="../index.html">← Back to Resume</a>
+    </footer>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
